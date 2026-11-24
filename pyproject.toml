@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,8 @@ name = "louisa_patch_generation"
 version = "0.4.0"
 description = "Synchronized 2D and 3D medical image patches with annotation IDs and HDF5 export"
 readme = "README.md"
-license = {file = "LICENSE"}
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 dynamic = ["dependencies"]
 

@@ -14,11 +14,26 @@ This package was implemented as a part of the project:
 From the cloned repository directory:
 
 ```bash
-python -m pip install -e .
+python -m pip install .
 ```
 
 Requires Python 3.10+. Runtime dependencies are listed in `requirements.txt`;
 installation reads that file automatically.
+
+A regular install copies the library into the environment, so the source folder
+can be removed afterwards. Use `-e` only for development when the source folder
+will remain available.
+
+If installation from a network share fails while creating build metadata,
+run the following from the repository root to build on a local temporary disk:
+
+```bash
+task_build_dir=$(mktemp -d)
+mkdir -p "$task_build_dir/src"
+cp pyproject.toml requirements.txt README.md LICENSE "$task_build_dir/"
+cp -R src/louisa_patch_generation "$task_build_dir/src/"
+python -m pip install "$task_build_dir"
+```
 
 ## Minimal example
 
@@ -104,7 +119,7 @@ a generator, the full result is replayed, including patches already previewed.
 ## Visual 2D notebook
 
 ```bash
-python -m pip install -e ".[notebook]"
+python -m pip install ".[notebook]"
 jupyter lab examples/patches_2d.ipynb
 ```
 
