@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "louisa_patch_generation"
+version = "0.4.0"
+description = "Synchronized 2D and 3D medical image patches with annotation IDs and HDF5 export"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[project.optional-dependencies]
+notebook = ["matplotlib>=3.6", "jupyterlab>=4"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["louisa_patch_generation*"]
